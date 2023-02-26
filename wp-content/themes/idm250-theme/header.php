@@ -13,7 +13,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div class="nav">
-    <a href="<?php echo get_template_directory_uri(); ?>/front-page.php">
+    <a href="<?php echo home_url(); ?>">
     <img src="<?php echo get_template_directory_uri(); ?>/dist/images/logo.png" class="logo"alt="Logo">
     </a>
     <?php wp_nav_menu(['theme_location' => 'primary-menu']); ?>
