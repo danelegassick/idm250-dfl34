@@ -49,3 +49,17 @@ add_action('wp_enqueue_scripts', 'theme_scripts_and_styles');
 
 //add support for thumbnails in our theme
 add_theme_support('post-thumbnails');
+
+//add support for pages to have excerpts
+add_post_type_support('page', 'excerpt');
+
+function register_theme_menus()
+{
+    register_nav_menus(
+        [
+            'primary-menu' => 'Primary Menu',
+            'footer-menu' => 'Footer Menu'
+        ]
+    );
+}
+add_action('init', 'register_theme_menus');
