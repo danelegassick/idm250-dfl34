@@ -17,40 +17,43 @@ html {
 
 body {
     background-color: var(--background-color);
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
-.content-blocks h1{
-    /* padding-top: 8rem; */
+main {
+    padding: 8rem 1rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1 {
     font-size: 4rem;
     color: var(--bg-four);
     font-family: 'Syne', sans-serif;
     font-weight: bolder;
-    width: 14.5ch;
-    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid;
+    max-width: fit-content;
+    /* overflow: hidden; */
 }
 
-@keyframes typing {
-    from {
-      width: 0
-    }
-  }
-      
-  @keyframes blink {
-    50% {
-      border-color: transparent
-    }
-  }
-.content-blocks h6{
-    padding-top: .5rem;
-    font-size: 2rem;
-    color: #727272;
-    font-family: 'Helvetica Neue';
-    text-align: center;
-    font-weight: normal;
+p {
+    color: var(--bg-three);
+    line-height: 1.375rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    max-width: 700px;
+    padding-bottom: 1rem;
 }
+
+h5{
+    font-size: 1rem;
+    color: var(--bg-four);
+    font-family: 'Syne', sans-serif;
+    font-weight: bolder;
+    padding-bottom: 1rem;
+}
+
+
 .nav{
     width: 100%;
     background-color: var(--background-color);
@@ -104,8 +107,7 @@ flex-direction: row;
 footer {
     margin: auto;
     padding: 3rem;
-    padding-bottom: 3rem;
-    position: sticky;
+    /* position: absolute; */
     bottom: 0;
     font-family: 'Syne', sans-serif;
     color: var(--bg-three);
@@ -141,14 +143,7 @@ footer a {
     padding-top: 5rem;
     padding-bottom: 10rem;
 }
-.content-blocks {
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr;
-    padding: 2rem;
-    padding-top: 8rem;
-    padding-bottom: 10rem;
-}
+
 .blog-blocks p {
     text-align: left;
     margin: auto;
@@ -165,17 +160,7 @@ padding-top: 10rem;
 width: 100%;
 height: 300px;
 }
-.content-blocks h2 {
-    font-size: 2rem;
-    color: var(--bg-four);
-    font-family: 'Syne', sans-serif;
-    text-align: center;
-    font-weight: bolder;
-}
-.content-blocks p {
-    color: var(--bg-three);
-    font-family: 'Helvetica Neue', sans-serif;
-}
+
 .blog-blocks h3 {
     font-size: 1.2rem;
     color: var(--bg-four);
@@ -233,19 +218,269 @@ height: 300px;
           transform: translateX(-100%);
         }
       }
-      @media screen and (max-width: 700px) {
-        .content-blocks h1 {
-         font-size: 2.5rem;
-        }
-        .content-blocks h6 {
-            font-size: 2rem;
-        }
-         }
-      @media screen and (max-width: 600px) {
-   .content-blocks h1 {
-    font-size: 2rem;
-   }
-   .content-blocks h6 {
-    font-size: 1.5rem;
+
+.error-block {
+    width: fit-content;
 }
+
+/* CONTENT BLOCK CSS */
+
+.content-blocks {
+    display: grid;
+    /* place-items: center; */
+    grid-template-columns: 1fr;
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+}
+
+.content-blocks * {
+    max-width: 100%;
+}
+
+.content-blocks h1{
+    font-size: 4rem;
+    color: var(--bg-four);
+    font-family: 'Syne', sans-serif;
+    font-weight: bolder;
+    padding-bottom: 1rem;
+}
+
+.content-blocks h2{
+    font-size: 3rem;
+    color: var(--bg-four);
+    font-family: 'Syne', sans-serif;
+    font-weight: bolder;
+    padding-bottom: 1rem;
+}
+
+.content-blocks h3{
+    font-size: 2rem;
+    color: var(--bg-four);
+    font-family: 'Syne', sans-serif;
+    font-weight: bolder;
+    padding-bottom: 1rem;
+}
+
+.content-blocks h4{
+    font-size: 1.5rem;
+    color: var(--bg-four);
+    font-family: 'Syne', sans-serif;
+    font-weight: bolder;
+    padding-bottom: 1rem;
+}
+
+.content-blocks h5{
+    font-size: 1rem;
+    color: var(--bg-four);
+    font-family: 'Syne', sans-serif;
+    font-weight: bolder;
+    padding-bottom: 1rem;
+}
+
+.content-blocks h6{
+    font-size: 1rem;
+    color: var(--bg-four);
+    font-family: 'Syne', sans-serif;
+    font-weight: lighter;
+    padding-bottom: 1rem;
+}
+
+.content-blocks ul {
+    color: var(--bg-three);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.5em;
+    margin: 5px 0 15px;
+    padding: 0;
+}
+  
+.content-blocks ul li {
+    list-style: none;
+    position: relative;
+    padding: 0 0 0 20px;
+  }
+
+.content-blocks ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    height: 8px;
+    width: 8px;
+    border: 2px solid var(--bg-four);
+    border-width: 2px 2px 0 0;
+    transform: rotate(45deg);
+}
+
+.content-blocks ol {
+    color: var(--bg-three);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.5em;
+    margin: 5px 0 15px;
+    padding: 0;
+}
+
+.content-blocks ol li {
+    list-style-type: none;
+    counter-increment: item;
+    padding-bottom: 0.25rem;
+  }
+  
+.content-blocks ol li:before {
+    content: counter(item);
+    margin-right: 5px;
+    color: var(--bg-four);
+    font-family: "Syne", sans-serif;
+    font-weight: bold;
+    position: relative;
+    bottom: 2px;
+    padding: 0 8px;
+  }
+     
+
+.content-blocks p {
+    color: var(--bg-three);
+    line-height: 1.375rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    max-width: 700px;
+    padding-bottom: 1rem;
+}
+
+.content-blocks blockquote {
+    position: relative;
+    font-size: 30px;
+    line-height: 38px;
+    padding: 5rem 4rem;
+    margin-bottom: 2rem;
+    max-width: 900px;
+}
+  
+.content-blocks blockquote:after, .content-blocks blockquote:before {
+  color: var(--bg-two);
+  position: absolute;
+  content: '“';
+  font-size: 14em;
+  height: 0.5rem;
+  line-height: 0.75em;
+  top: 0;
+  left: -0.07em;
+  z-index: -1;
+  }
+  
+.content-blocks blockquote:after {
+  content: '”';
+  top: auto;
+  bottom: 3rem;
+  left: auto;
+  right: 0;
+  line-height: 0.36em;
+  }
+
+.content-blocks blockquote cite {
+    font-size: 20px;
+    line-height: 38px;
+    font-family: "Syne", sans-serif;
+    font-weight: bolder;
+    margin-left: auto;
+    color: var(--bg-three);
+}
+
+.content-blocks blockquote p {
+    font-size: 2rem;
+    line-height: 38px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 300;
+}
+
+.content-blocks a, .content-blocks a:visited, .content-blocks a:hover, .content-blocks a:active {
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    position:relative;
+    transition: 0.5s color ease;
+    text-decoration:none;
+    color:var(--bg-four);
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+}
+.content-blocks a:hover{
+    color: var(--bg-four);
+}
+
+.content-blocks a:after{
+    content: "";
+    transition:0.5s all ease;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    position: absolute;
+    bottom: -0.25em;
+    height: 3px;
+    width:0;
+    background:#d73444;
+    left: 0;
+    border-radius: 5px;
+}
+
+.content-blocks a:hover:after{
+    width:100%;
+}
+
+.content-blocks strong {
+    font-weight: 600;
+}
+
+.content-blocks em {
+    font-style: italic;
+}
+
+.content-blocks figure {
+    margin-bottom: 1rem;
+    position: relative;
+    max-width: 900px;
+}
+
+.content-blocks figure img {
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    -webkit-transition: opacity 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: opacity 0.5s;
+}
+    
+.content-blocks figure img:hover {
+    opacity: 0.9;
+}
+    
+.content-blocks figure figcaption {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    padding: 1rem 1.5rem 0.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+    color: #fff;
+    opacity: 0.9;
+}
+
+/* @media screen and (max-width: 700px) {
+    .content-blocks h1 {
+     font-size: 2.5rem;
     }
+    .content-blocks h6 {
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width: 600px) {
+    .content-blocks h1 {
+        font-size: 2rem;
+    }
+    .content-blocks h6 {
+        font-size: 1.5rem;
+    }
+} */
+
