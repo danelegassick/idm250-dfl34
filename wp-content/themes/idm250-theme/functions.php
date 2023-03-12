@@ -63,3 +63,84 @@ function register_theme_menus()
     );
 }
 add_action('init', 'register_theme_menus');
+
+
+function remove_archive_title_prefix($title)
+{
+    if (is_category()) {
+        $title = single_cat_title('', false);
+    } elseif (is_tag()) {
+        $title = single_tag_title('', false);
+    } elseif (is_author()) {
+        $title = '<span class="vcard">' . get_the_author() . '</span>';
+    } elseif (is_post_type_archive()) {
+        $title = post_type_archive_title('', false);
+    } elseif (is_tax()) {
+        $title = single_term_title('', false);
+    }
+    return $title;
+}
+add_filter('get_the_archive_title', 'remove_archive_title_prefix');
+
+/**
+ * Register custom taxonomies
+ * @link https://developer.wordpress.org/reference/functions/register_taxonomy/
+ * @return void
+ */
+function register_custom_taxonomies()
+{
+    $args = [
+        'labels' => [
+            'name' => 'Song Categories',
+            'singular_name' => 'Song Category',
+            'search_items' => 'Search Song Categories',
+            'all_items' => 'All Song Categories',
+            'parent_item' => 'Parent Song Category',
+            'parent_item_colon' => 'Parent Song Type:',
+            'edit_item' => 'Edit Song Category',
+            'update_item' => 'Update Song Category',
+            'add_new_item' => 'Add New Song Category',
+            'new_item_name' => 'New Song Type Name',
+            'menu_name' => 'Song Categories',
+        ],
+        'hierarchical' => true,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => ['slug' => 'song/categories'],
+        'show_in_rest' => true,
+    ];
+
+    $taxonomy_name = 'project-categories'; // name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces).
+    $taxonomy_association = ['projects']; // post types to associate with this taxonomy
+    register_taxonomy($taxonomy_name, $taxonomy_association, $args);
+}
+add_action('init', 'register_custom_taxonomies');
+
+/**
+ * Function to register custom post types
+ * @link https://developer.wordpress.org/reference/functions/register_post_type/
+ * @return void
+ */
+function register_custom_post_types()
+{
+    $arg = [
+        'labels' => [
+            'name' => 'Songs',
+            'singular_name' => 'Song',
+        ],
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => ['slug' => 'Songs'],
+        'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
+        'menu_position' => 5,
+        'taxonomies' => ['song-categories'], // Name of custom taxonomy. Only need if you have a custom taxonomy
+        'show_in_rest' => true,
+    ];
+    $post_type_name = 'projects';
+
+    // Register Albums post type
+    register_post_type($post_type_name, $arg);
+}
+
+add_action('init', 'register_custom_post_types');

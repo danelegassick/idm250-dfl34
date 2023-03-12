@@ -1,7 +1,6 @@
 <?php get_header();?>
-<h1><?php echo get_the_title();?></h1>
-<br>
-<h5>Categories For This Post</h5>
+<!-- <h1><?php echo get_the_title();?></h1> -->
+<!-- <h5>Categories For This Post</h5>
 <p>
 <?php
 $currentPostId = get_the_id();
@@ -11,7 +10,7 @@ foreach($terms as $term) {
     echo "<span class='category-listing'>{$term->name}, </span>";
 }
 ?>
-</p>
+</p> -->
 
 <div class="content-blocks">
     
