@@ -1,9 +1,16 @@
 <?php get_header(); ?>
+<?php 
+// if(null !==(the_post_thumbnail()))
+// {
+//     get_template_part('components/hero-image');
+// } 
+// else 
+// {
+//     echo "<h1>" . get_the_title() . "</h1>";
+// }
+get_template_part('components/hero-image')
+?>
 
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php get_template_part('components/content'); ?>
-</article>
-
+<?php get_template_part('components/content')?>
 
 <?php get_footer(); ?>

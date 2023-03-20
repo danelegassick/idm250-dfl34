@@ -22,7 +22,7 @@ function theme_scripts_and_styles()
     // Load in Google Fonts
     wp_enqueue_style(
         'google-fonts',
-        'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap',
         [],
         null
     );
@@ -144,3 +144,33 @@ function register_custom_post_types()
 }
 
 add_action('init', 'register_custom_post_types');
+
+add_action('acf/init', 'my_acf_init');
+function my_acf_init() {
+    
+    // check function exists
+    if( function_exists('acf_register_block') ) {
+        
+        // register a testimonial block
+        acf_register_block(array(
+            'name'              => 'logo-cloud',
+            'title'             => __('Logo Cloud'),
+            'description'       => __('A custom logo cloud block.'),
+            'render_callback'   => 'my_acf_block_render_callback',
+            'category'          => 'formatting',
+            'icon'              => 'admin-comments',
+            'keywords'          => array( 'logo', 'grid', 'boxes', 'images' ),
+        ));
+    }
+}
+
+function my_acf_block_render_callback($block)
+{
+    // convert name ("acf/testimonial") into path friendly slug ("testimonial")
+    $slug = str_replace('acf/', '', $block['name']);
+
+    // include a template part from within the "template-parts/block" folder
+    if (file_exists(get_theme_file_path("/blocks/{$slug}.php"))) {
+        include get_theme_file_path("/blocks/{$slug}.php");
+    }
+}
