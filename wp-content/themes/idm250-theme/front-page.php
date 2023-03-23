@@ -1,16 +1,12 @@
-<?php get_header(); ?>
-<h1><?php echo get_the_title(); ?></h1>
-<div><?php echo get_the_excerpt(); ?></div>
-
-
 <?php
-//check if page has assigned image
-if (has_post_thumbnail()) {
-    the_post_thumbnail();
-} 
-?>
+/**
+ * This template is used to display the front page of the site.
+ * It has to be set in your settings > reading > front page displays > a static page
+ */
+get_header();
+get_template_part('components/hero-home');
+get_template_part('components/recent-songs');
+get_template_part('components/featured-block');
+get_footer();
 
-<?php get_template_part('components/content')?>
 
-
-<?php get_footer(); ?>

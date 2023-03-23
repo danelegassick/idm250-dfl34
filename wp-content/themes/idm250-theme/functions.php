@@ -131,13 +131,13 @@ function register_custom_post_types()
         ],
         'public' => true,
         'has_archive' => true,
-        'rewrite' => ['slug' => 'Songs'],
+        'rewrite' => ['slug' => 'songs'],
         'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
         'menu_position' => 5,
         'taxonomies' => ['song-categories'], // Name of custom taxonomy. Only need if you have a custom taxonomy
         'show_in_rest' => true,
     ];
-    $post_type_name = 'projects';
+    $post_type_name = 'songs';
 
     // Register Albums post type
     register_post_type($post_type_name, $arg);
@@ -162,6 +162,21 @@ function my_acf_init() {
             'keywords'          => array( 'logo', 'grid', 'boxes', 'images' ),
         ));
     }
+
+
+    if( function_exists('acf_register_block') ) {
+        
+        // register a testimonial block
+        acf_register_block(array(
+            'name'              => 'home_hero_section',
+            'title'             => __('Home Hero Section'),
+            'description'       => __('A custom Home Hero Section block.'),
+            'render_callback'   => 'my_acf_block_render_callback',
+            'category'          => 'formatting',
+            'icon'              => 'admin-comments',
+            'keywords'          => array( 'home', 'hero', 'description', 'section' ),
+        ));
+    }
 }
 
 function my_acf_block_render_callback($block)
@@ -174,3 +189,67 @@ function my_acf_block_render_callback($block)
         include get_theme_file_path("/blocks/{$slug}.php");
     }
 }
+
+
+
+// {
+//     "key": "group_63fd4a9a62d8a",
+//     "title": "Home Hero section",
+//     "fields": [
+//         {
+//             "key": "field_63fd4a9a6d0e6",
+//             "label": "Hero Descriptions",
+//             "name": "home_hero_description",
+//             "aria-label": "",
+//             "type": "textarea",
+//             "instructions": "Add some intro text to grab the user's attention in this section. Usually 3 sentences.",
+//             "required": 0,
+//             "conditional_logic": 0,
+//             "wrapper": {
+//                 "width": "",
+//                 "class": "",
+//                 "id": ""
+//             },
+//             "default_value": "",
+//             "maxlength": "",
+//             "rows": "",
+//             "placeholder": "",
+//             "new_lines": ""
+//         },
+//         {
+//             "key": "field_63fd4c8aa051a",
+//             "label": "Hero Button",
+//             "name": "home_hero_cta",
+//             "aria-label": "",
+//             "type": "link",
+//             "instructions": "",
+//             "required": 0,
+//             "conditional_logic": 0,
+//             "wrapper": {
+//                 "width": "",
+//                 "class": "",
+//                 "id": ""
+//             },
+//             "return_format": "array"
+//         }
+//     ],
+//     "location": [
+//         [
+//             {
+//                 "param": "page",
+//                 "operator": "==",
+//                 "value": "16"
+//             }
+//         ]
+//     ],
+//     "menu_order": 0,
+//     "position": "normal",
+//     "style": "default",
+//     "label_placement": "top",
+//     "instruction_placement": "label",
+//     "hide_on_screen": "",
+//     "active": true,
+//     "description": "",
+//     "show_in_rest": 0,
+//     "modified": 1678235352
+// }

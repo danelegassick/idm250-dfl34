@@ -34,6 +34,15 @@ h1 {
     /* overflow: hidden; */
 }
 
+h2{
+    margin-top: 2rem;
+    font-size: 3rem;
+    color: var(--bg-four);
+    font-family: 'Syne', sans-serif;
+    font-weight: bolder;
+    padding-bottom: 1rem;
+}
+
 p {
     color: var(--bg-three);
     line-height: 1.5rem;
@@ -718,4 +727,307 @@ tbody tr:last-of-type {
     max-width: 500px;
     margin: 0 auto;
   }
+  
+  pre.wp-block-verse {
+  /* background-color: #f7f7f7; */
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 18px;
+  text-align: center;
+}
+
+pre.wp-block-verse:first-of-type {
+  margin-top: 0;
+}
+
+pre.wp-block-verse:last-of-type {
+  margin-bottom: 0;
+}
+
+pre.wp-block-verse::before {
+  content: "Song Lyrics";
+  color: var(--bg-two);
+  font-family: "Syne";
+  font-weight: 800;
+  font-size: clamp(4rem, 2.1633rem + 7.8367vw, 10rem);
+  display: block;
+  height: 10px;
+}
+
+pre.wp-block-verse::after {
+  content: "";
+  display: block;
+  height: 10px;
+}
+
+.song-hero {
+    position: relative;
+    margin: auto;
+    width: clamp(18.75rem, 16.8367rem + 8.1633vw, 25rem); 
+    height: clamp(18.75rem, 16.8367rem + 8.1633vw, 25rem); 
+
+   /* width: 400px;
+    height: 400px;  */
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    bottom: 60%;
+  }
+  
+  .song-hero img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
+  
+  .song-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    color: #fff;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  }
+  
+  .song-content h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--background-color);
+
+}
+
+  .song-background-banner {
+    height: 400px;
+    margin-bottom: 13rem;
+
+  }
+
+  .song-background-banner-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    filter: blur(3px);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%);
+    background: var(--bg-three);
+
+  }
+
+
+.song-hero-card {
+    position: relative;
+    width: clamp(18.75rem, 16.8367rem + 8.1633vw, 25rem); 
+    height: clamp(18.75rem, 16.8367rem + 8.1633vw, 25rem); 
+
+   /* width: 400px;
+    height: 400px;  */
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  }
+  
+  .song-hero-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
+
+  .songs-container {
+    /* border-top: #d73444 3px solid; */
+    padding: 3rem 2rem;
+  }
+
+  /* .songs-container::before {
+    content: "><><><><><";
+    position: absolute;
+    overflow-x: hidden;
+    top: calc(20% - 3rem);
+    left: 3rem;
+    z-index: -50;
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    font-size: clamp(4rem, 2rem + 6.1633vw, 10rem);
+    color: var(--bg-two);
+  } */
+
+  .songs-container h2 {
+    margin-top: 0;
+    font-size: 3rem;
+    color: var(--bg-three);
+    font-family: 'Syne', sans-serif;
+    font-weight: bolder;
+    padding-bottom: 1rem;
+  }
+
+  .song-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  @media screen and (max-width: 700px) {
+    .song-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .song-hero-card {
+margin: auto;
+      }
+  }
+
+  .center-song-container {
+    margin: auto;
+    width: fit-content;
+  }
+
+
+  .hero-about {
+    position: relative;
+    overflow: hidden;
+    height: 500px; /* Adjust as needed */
+    margin-bottom: 1rem;
+    background-color: var(--bg-four);
+  }
+  
+  .hero-about img {
+    display: block;
+    width: 100vw;
+    min-height: 500px;
+    object-fit: cover;
+    object-position: center;
+    height: auto;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+  }
+  
+  .hero-overlay-about {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Adjust the opacity as needed */
+  }
+  
+  .hero-content-about {
+    position: absolute;
+    top: calc(50% - 3em);
+    left: 10%;
+    margin: auto;
+    /* transform: translate(rem, -3rem); */
+    text-align: center;
+    color: var(--bg-three); /* Set the font color */
+    z-index: 1;
+  }
+  
+  .hero-content-about h1 {
+    font-size: 6em; /* Set the font size */
+    margin-bottom: 20px;
+    margin: auto;
+    color: var(--background-color); /* Set the font color */
+
+  }
+  
+  .hero-description-about {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  @media screen and (max-width: 700px) {
+    .about-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .hero-about {
+        position: relative;
+        overflow: hidden;
+        height: 400px; /* Adjust as needed */
+        margin-bottom: 0;
+        background-color: var(--bg-four);
+      }
+
+      .hero-about img {
+        display: block;
+        width: 100vw;
+        min-height: 500px;
+        object-fit: cover;
+        object-position: center;
+        height: auto;
+        clip-path: polygon(0 5%, 100% 0, 100% 98%, 0 100%);
+      }
+
+      .hero-content-about {
+        position: absolute;
+        top: calc(50% - 3em);
+        left: 0;
+        margin: auto;
+        /* transform: translate(rem, -3rem); */
+        text-align: center;
+        color: var(--bg-three); /* Set the font color */
+        z-index: 1;
+      }
+    }
+
+
+    .hero-image {
+      position: relative;
+      width: 100%;
+      margin-bottom: 3rem;
+      clip-path: polygon(0 0, 100% 0, 100% 98%, 0 92%);
+    }
+    .hero-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+      background-image: linear-gradient(to left, #d9ff65, #f3cd34, #fe982c, #f96041, #e1215a);
+      z-index: 1;
+      max-height: 80vh;
+    }
+    .hero-image img {
+      height: 80vh;
+      object-fit: cover;
+      width: 100vw;
+    }
+    .hero-content {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      color: #ffffff;
+    }
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      color: var(--background-color);
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
   
